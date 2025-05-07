@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rabbi's Garden - About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-color: #2d6a4f;
+      --secondary-color: #4caf50;
+      --accent-color: #ffb703;
+      --dark-color: #1b4332;
+      --light-color: #f9f9f9;
+      --text-color: #333;
+      --white: #ffffff;
+      --primary-green: #1e8449;
+      --dark-green: #145a32;
+      --light-green: #58d68d;
+      --gold-accent: #f1c40f;
+      --pure-white: #ffffff;
+      --off-white: #f8f9fa;
+      --dark-bg: #1a1a1a;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-color);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .btn {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background-color: var(--dark-color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--pure-white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--primary-green);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: var(--gold-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      transition: color 0.3s;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a.active {
+      color: var(--primary-green);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-green);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover:after,
+    .nav-links a.active:after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: var(--white);
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin-bottom: 20px;
+      color: var(--white);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 0;
+      background-color: var(--light-color);
+    }
+
+    .about .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about-image {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.5s;
+    }
+
+    .about img:hover {
+      transform: scale(1.02);
+    }
+
+    .about .content {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .about h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .about h2::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: var(--accent-color);
+      bottom: -10px;
+      left: 0;
+    }
+
+    .about p {
+      font-size: clamp(1rem, 1.2vw, 1.2rem);
+      margin-bottom: 25px;
+    }
+
+    /* Mission Section */
+    .mission {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .mission h2 {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 40px;
+    }
+
+    .mission-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .mission-card {
+      background: var(--light-color);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .mission-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .mission-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mission-card h3 {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+
+    /* Gallery Section - Enhanced Design */
+    .gallery {
+      padding: 80px 0;
+      background-color: var(--light-color);
+      text-align: center;
+    }
+
+    .gallery h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .gallery p.subtitle {
+      font-size: clamp(1rem, 1.3vw, 1.3rem);
+      margin-bottom: 40px;
+      color: #666;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 30px 20px 20px;
+      transform: translateY(100%);
+      transition: transform 0.5s ease;
+      text-align: left;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    .gallery-caption h3 {
+      font-size: 1.5em;
+      margin-bottom: 5px;
+      color: var(--white);
+    }
+
+    .gallery-caption p {
+      font-size: 1em;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    /* Text Boxes for Gallery */
+    .gallery-text-box {
+      background: var(--white);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-top: 20px;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-text-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .gallery-text-box h3 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .gallery-text-box p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .construction-banner {
+      background-color: var(--accent-color);
+      color: var(--dark-color);
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* Impact Section */
+    .impact {
+      padding: 80px 0;
+      background: linear-gradient(rgba(45, 106, 79, 0.9), rgba(45, 106, 79, 0.9)), url('https://images.unsplash.com/photo-1534710961216-75c88202f43a') no-repeat center center/cover;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .impact h2 {
+      color: var(--white);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 40px;
+    }
+
+    .impact-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: clamp(1rem, 1.3vw, 1.3rem);
+      line-height: 1.8;
+      padding: 0 20px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--pure-white);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-logo i {
+      margin-right: 10px;
+      color: var(--gold-accent);
+    }
+
+    .footer-about p {
+      margin-bottom: 1rem;
+      color: #aaa;
+    }
+
+    .footer-links h3, .footer-social h3 {
+      color: var(--pure-white);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h3:after, .footer-social h3:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--gold-accent);
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--light-green);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      border-radius: 50%;
+      color: var(--light-green);
+      border: 2px solid var(--light-green);
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--light-green);
+      color: var(--dark-bg);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .nav-links {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links li {
+        margin: 0.5rem 1rem;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .service-item {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .leader-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .leader-photo {
+        margin-bottom: 20px;
+      }
+
+      .modal-content {
+        width: 95%;
+        margin: 10% auto;
+      }
+    }
+
+    /* Privacy Policy Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #333;
+    }
+
+    /* Mobile Responsive */
+    @media screen and (max-width: 992px) {
+      .nav-container {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--pure-white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links li {
+        margin: 15px 0;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .hero {
+        height: auto;
+        padding: 120px 0 80px;
+      }
+
+      .mission-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-content {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .about .container {
+        flex-direction: row;
+      }
+      
+      .about-image {
+        width: 50%;
+      }
+      
+      .about .content {
+        width: 50%;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+      
+      .footer-links h3:after, 
+      .footer-social h3:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-leaf"></i>Rabbi's Garden
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+      </ul>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Our Journey</h1>
+        <p>Explore the spiritual foundation of Rabbi's Garden and our commitment to cultivating faith through God's guidance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <div class="about-image">
+        <img src="https://i.pinimg.com/736x/2e/49/23/2e49235eb2d0110dd010d6e9a0d914c7.jpg" alt="About Rabbi's Garden">
+      </div>
+      <div class="content">
+        <h2>About Rabbi's Garden</h2>
+        <p>Mike Wuertemburg is the creator and owner of Rabbi's Garden. Also founder and President of
+        Equip Ministries along with his wife Edith Wuertemburg.</p>
+        <p>This ministry began in August of 2020 in Fruita, Colorado, USA. Being led by The Holy Spirit I envisioned reaching many nations and encouraging people to grow in
+        their relationship with Yeshua (Jesus). </p>
+        <p>Becoming more intimate with Him. To increase their hunger
+        for the Word and to bless others through their insights to The Creator of the universe YHWH.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission">
+    <div class="container">
+      <h2>Our Core Values</h2>
+      <div class="mission-cards">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <img src="https://i.pinimg.com/736x/89/9b/a5/899ba5bb245bd1d69b2cc65d565f7b8f.jpg" alt="Faith">
+          </div>
+          <h3>Faith</h3>
+          <p>Our organization is rooted in faith, trusting in God's plan for our lives and our work, knowing that with unwavering belief in His power and promises, we can overcome any obstacle and fulfill our calling.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Love">
+          </div>
+          <h3>Love</h3>
+          <p>At the heart of our Christian organization is the value of love, as we believe that loving others unconditionally, just as Christ loved us, is the foundation of all our actions and relationships.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">
+            <img src="https://i.pinimg.com/736x/45/61/5e/45615e1da2a1ed83efd3bc07b20334c2.jpg" alt="Stewardship">
+          </div>
+          <h3>Stewardship</h3>
+          <p>Stewardship is central to our mission, as we recognize the responsibility to wisely manage the resources God has entrusted to us, whether that be time, finances, or talents, ensuring they are used to further His Kingdom.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <div class="container">
+      <h2>Our Sacred Spaces</h2>
+      <p class="subtitle">Currently under construction - see our progress and how your support can help complete these spiritual sanctuaries</p>
+      
+      <div class="construction-banner">
+        <i class="fas fa-hard-hat"></i> Under Construction - Your Donations Help Build These Sacred Spaces <i class="fas fa-hard-hat"></i>
+      </div>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://i.pinimg.com/736x/9a/12/50/9a12500f4ae60d26df005f87cd7a4c63.jpg" alt="Meditation Garden Construction">
+          <div class="gallery-caption">
+            <h3>Meditation Sanctuary</h3>
+          </div>
+        </div>
+        <div class="gallery-text-box">
+          <h3>Meditation Sanctuary</h3>
+          <p>We hope to soon begin preparing the foundation for this tranquil space, thoughtfully designed for prayer and contemplation. With your help, we’ll bring it to life complete with water features and lush plantings that will make it a true sanctuary. Your donations will help complete the water features and plantings that will make this a true sanctuary.</p>
+          <p><strong>Your support will provide:</strong> Native plants, benches, and a flowing water feature to enhance meditation.</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://i.pinimg.com/736x/33/b7/71/33b771ee9d01c6b92e5eb89b0b529545.jpg" alt="Biblical Garden Construction">
+          <div class="gallery-caption">
+            <h3>Biblical Oasis</h3>
+          </div>
+        </div>
+        <div class="gallery-text-box">
+          <h3>Biblical Oasis</h3>
+          <p>We hope to begin planting the first biblical species soon, as volunteers prepare to create educational displays. Contributions will help us acquire more plants mentioned in scripture and create interpretive signage.</p>
+          <p><strong>Your support will provide:</strong> Olive trees, fig trees, and educational materials about their biblical significance.</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://i.pinimg.com/736x/a0/dd/61/a0dd61ef4765187d5a1315b57564a417.jpg" alt="Community Garden Construction">
+          <div class="gallery-caption">
+            <h3>Community Garden</h3>
+          </div>
+        </div>
+        <div class="gallery-text-box">
+          <h3>Community Blessing</h3>
+          <p>We hope to soon see the framework of our community garden take shape, with neighbors coming together to build raised beds. Your donations will help us complete the irrigation system and provide tools for the volunteers who will bring this vision to life.</p>
+          <p><strong>Your support will provide:</strong> Irrigation system, gardening tools, and starter plants for the community.</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://i.pinimg.com/736x/09/07/db/0907dbe7a979ae0ddd8b488f6566fa12.jpg" alt="Healing Garden Construction">
+          <div class="gallery-caption">
+            <h3>Healing Haven</h3>
+          </div>
+        </div>
+        <div class="gallery-text-box">
+          <h3>Healing Haven</h3>
+          <p>We hope to soon begin installing the first accessible pathways that will wind through this therapeutic space. With your support, we’ll be able to add fragrant plants, tactile elements, and quiet seating areas designed for reflection and restoration.</p>
+          <p><strong>Your support will provide:</strong> Accessible pathways, aromatic herbs, and braille signage for visitors.</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://i.pinimg.com/736x/ee/28/7b/ee287bba03cec758a93db92513dc1978.jpg" alt="Prayer Garden Construction">
+          <div class="gallery-caption">
+            <h3>Prayer Pathway</h3>
+          </div>
+        </div>
+        <div class="gallery-text-box">
+          <h3>Prayer Pathway</h3>
+          <p>We hope to soon begin marking the outline of our prayer labyrinth, with volunteers preparing the base layer. Your contributions will help us complete the stone pathway and surrounding plantings, creating a sacred space for reflection and spiritual journey.</p>
+          <p><strong>Your support will provide:</strong> Stone pathway materials and drought-resistant border plants.</p>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="https://i.pinimg.com/736x/ca/7f/a2/ca7fa2cbf2a7bf90f8e36351c4cef715.jpg" alt="Memorial Garden Construction">
+          <div class="gallery-caption">
+            <h3>Memorial Garden</h3>
+          </div>
+        </div>
+        <div class="gallery-text-box">
+          <h3>Memorial Garden</h3>
+          <p>We hope to soon begin clearing the site for our memorial garden, preparing the ground for meaningful perennial plantings. With your support, we’ll install commemorative plaques and create a peaceful setting for remembrance and reflection.</p>
+          <p><strong>Your support will provide:</strong> Memorial plaques, perennial flowers, and quiet seating areas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="impact">
+    <div class="container">
+      <h2>Our Divine Impact</h2>
+      <div class="impact-content">
+        <p>At Rabbi's Garden, we believe that the Word of God is a transformative force capable of touching every heart and every community. Our divine impact is rooted in the power of the Gospel, through which we aim to uplift, guide, and inspire individuals to live with purpose, faith, and love.</p>
+        <p>We are committed to sharing the message of salvation, healing, and hope, with a focus on making disciples who reflect Christ's love in their everyday lives. By embracing the teachings of the Bible, we seek to create an environment where people can encounter the divine presence of God and experience the transformation that comes from a deeper relationship with Him.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <i class="fas fa-leaf"></i>Rabbi's Garden
+          </div>
+          <p>A community-based initiative dedicated to sharing the transformative power of the Bible with the world.</p>
+          <p>Join Us in Spreading the Word: Become a Part of Our Bible Community!</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="donations.html">Donations</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+          <p style="margin-top: 1rem; color: #aaa;">Follow our journey and see the impact of your support.</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Rabbi's Garden. All rights reserved. | <a href="#" id="privacy-link" style="color: var(--light-green);">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Privacy Policy</h2>
+      <p><strong>Last Updated: <span id="policy-date"></span></strong></p>
+      
+      <h3>1. Information We Collect</h3>
+      <p>We may collect personal information such as your name, email address, phone number, and payment details when you make a donation, purchase from our shop, or contact us.</p>
+      
+      <h3>2. How We Use Your Information</h3>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Process donations and purchases</li>
+        <li>Respond to your inquiries</li>
+        <li>Send you updates about our ministry (if you opt-in)</li>
+        <li>Improve our services</li>
+      </ul>
+      
+      <h3>3. Information Sharing</h3>
+      <p>We do not sell or share your personal information with third parties except as necessary to process payments or when required by law.</p>
+      
+      <h3>4. Data Security</h3>
+      <p>We implement appropriate security measures to protect your personal information. However, no internet transmission is 100% secure.</p>
+      
+      <h3>5. Your Rights</h3>
+      <p>You may request access to, correction of, or deletion of your personal information by contacting us.</p>
+      
+      <h3>6. Changes to This Policy</h3>
+      <p>We may update this policy periodically. The updated version will be posted on our website with a new "Last Updated" date.</p>
+      
+      <h3>7. Contact Us</h3>
+      <p>If you have questions about this privacy policy, please contact us through our <a href="contacts.html">Contacts page</a>.</p>
+    </div>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Set privacy policy date
+    document.getElementById('policy-date').textContent = new Date().toLocaleDateString('en-US', {
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric'
+    });
+    
+    // Mobile Navigation Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Set active navigation link
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (currentPage === linkPage) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+
+    // Privacy Policy Modal
+    const modal = document.getElementById('privacyModal');
+    const privacyLink = document.getElementById('privacy-link');
+    const closeBtn = document.querySelector('.close');
+    
+    privacyLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.style.display = 'block';
+    });
+    
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

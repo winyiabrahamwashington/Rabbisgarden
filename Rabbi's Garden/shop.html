@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rabbi's Garden - Bible Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-color: #2d6a4f;
+      --secondary-color: #4caf50;
+      --accent-color: #ffb703;
+      --dark-color: #1b4332;
+      --light-color: #f9f9f9;
+      --text-color: #333;
+      --white: #ffffff;
+      --primary-green: #1e8449;
+      --dark-green: #145a32;
+      --light-green: #58d68d;
+      --gold-accent: #f1c40f;
+      --pure-white: #ffffff;
+      --off-white: #f8f9fa;
+      --dark-bg: #1a1a1a;
+      --error-color: #e74c3c;
+      --success-color: #2ecc71;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-color);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .btn {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background-color: var(--dark-color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--pure-white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--primary-green);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: var(--gold-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      transition: color 0.3s;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a.active {
+      color: var(--primary-green);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-green);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover:after,
+    .nav-links a.active:after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    /* Bible Shop Section */
+    .bible-shop {
+      padding: 100px 0;
+      background-color: var(--white);
+      text-align: center;
+    }
+    
+    .bible-shop h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+    
+    .bible-shop p {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+    }
+    
+    .bible-shop .shop-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      transition: transform 0.3s ease;
+    }
+    
+    .bible-shop .shop-image:hover {
+      transform: scale(1.02);
+    }
+    
+    .bible-shop .newsletter {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .bible-shop .newsletter h3 {
+      margin-bottom: 20px;
+    }
+    
+    .bible-shop .newsletter .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    
+    .bible-shop .newsletter input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      transition: border-color 0.3s;
+    }
+    
+    .bible-shop .newsletter input:focus {
+      border-color: var(--secondary-color);
+      outline: none;
+    }
+    
+    .bible-shop .newsletter button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--secondary-color);
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .bible-shop .newsletter button:hover {
+      background-color: var(--dark-color);
+    }
+    
+    .bible-shop .newsletter .error-message {
+      color: var(--error-color);
+      margin-top: 5px;
+      text-align: left;
+      font-size: 0.9em;
+      display: none;
+    }
+
+    .bible-shop .newsletter .success-message {
+      color: var(--success-color);
+      margin-top: 10px;
+      text-align: center;
+      font-weight: 500;
+      display: none;
+    }
+
+    /* Custom Alert Styling */
+    .custom-alert {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .custom-alert h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+
+    .custom-alert p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .custom-alert .alert-btn {
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+
+    .custom-alert .alert-btn:hover {
+      background-color: var(--dark-color);
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--pure-white);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-logo i {
+      margin-right: 10px;
+      color: var(--gold-accent);
+    }
+
+    .footer-about p {
+      margin-bottom: 1rem;
+      color: #aaa;
+    }
+
+    .footer-links h3, .footer-social h3 {
+      color: var(--pure-white);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h3:after, .footer-social h3:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--gold-accent);
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--light-green);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      border-radius: 50%;
+      color: var(--light-green);
+      border: 2px solid var(--light-green);
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--light-green);
+      color: var(--dark-bg);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* Privacy Policy Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #333;
+    }
+
+    /* Mobile Responsive */
+    @media screen and (max-width: 992px) {
+      .nav-container {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--pure-white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links li {
+        margin: 15px 0;
+      }
+
+      .hamburger {
+        display: block;
+      }
+      
+      .bible-shop {
+        padding: 60px 0;
+      }
+      
+      .bible-shop h2 {
+        font-size: 2.5em;
+      }
+      
+      .bible-shop p {
+        font-size: 1.1em;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .bible-shop h2 {
+        font-size: 2.2em;
+      }
+      
+      .bible-shop .shop-image {
+        margin-bottom: 30px;
+      }
+      
+      .btn {
+        padding: 10px 25px;
+        font-size: 0.9em;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+      
+      .footer-links h3:after, 
+      .footer-social h3:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .bible-shop h2 {
+        font-size: 2em;
+      }
+      
+      .bible-shop p {
+        font-size: 1em;
+      }
+      
+      .nav-container {
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        top: 70px;
+        height: calc(100vh - 70px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-leaf"></i>Rabbi's Garden
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bible Shop Section -->
+  <section class="bible-shop">
+    <div class="container">
+      <h2>Bible Shop - Coming Soon!</h2>
+      <p>We're excited to announce the opening of our Bible shop. Stay tuned for a wide selection of Bibles, study guides, and more!</p>
+
+      <!-- Shop Image -->
+      <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bibles on display in a shop" class="shop-image">
+
+      <!-- Newsletter Signup -->
+      <div class="newsletter">
+        <h3>Get Notified When We Launch</h3>
+        <div class="input-group">
+          <input type="email" id="email-input" placeholder="Enter your email" required>
+          <div class="error-message" id="email-error"></div>
+        </div>
+        <button id="notify-btn" class="btn">Notify Me</button>
+        <div class="success-message" id="success-message"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Alert -->
+  <div class="overlay" id="overlay"></div>
+  <div class="custom-alert" id="custom-alert">
+    <h3>Thank You!</h3>
+    <p id="alert-message">We'll notify you when our Bible shop launches.</p>
+    <button class="alert-btn" id="alert-btn">OK</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <i class="fas fa-leaf"></i>Rabbi's Garden
+          </div>
+          <p>A community-based initiative dedicated to sharing the transformative power of the Bible with the world.</p>
+          <p>Join Us in Spreading the Word: Become a Part of Our Bible Community!</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="donations.html">Donations</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+          <p style="margin-top: 1rem; color: #aaa;">Follow our journey and see the impact of your support.</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Rabbi's Garden. All rights reserved. | <a href="#" id="privacy-link" style="color: var(--light-green);">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Privacy Policy</h2>
+      <p><strong>Last Updated: <span id="policy-date"></span></strong></p>
+      
+      <h3>1. Information We Collect</h3>
+      <p>We may collect personal information such as your name, email address, phone number, and payment details when you make a donation, purchase from our shop, or contact us.</p>
+      
+      <h3>2. How We Use Your Information</h3>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Process donations and purchases</li>
+        <li>Respond to your inquiries</li>
+        <li>Send you updates about our ministry (if you opt-in)</li>
+        <li>Improve our services</li>
+      </ul>
+      
+      <h3>3. Information Sharing</h3>
+      <p>We do not sell or share your personal information with third parties except as necessary to process payments or when required by law.</p>
+      
+      <h3>4. Data Security</h3>
+      <p>We implement appropriate security measures to protect your personal information. However, no internet transmission is 100% secure.</p>
+      
+      <h3>5. Your Rights</h3>
+      <p>You may request access to, correction of, or deletion of your personal information by contacting us.</p>
+      
+      <h3>6. Changes to This Policy</h3>
+      <p>We may update this policy periodically. The updated version will be posted on our website with a new "Last Updated" date.</p>
+      
+      <h3>7. Contact Us</h3>
+      <p>If you have questions about this privacy policy, please contact us through our <a href="contacts.html">Contacts page</a>.</p>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Navigation Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('fa-bars');
+      hamburger.classList.toggle('fa-times');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('fa-times');
+        hamburger.classList.add('fa-bars');
+      });
+    });
+
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Set privacy policy date
+    document.getElementById('policy-date').textContent = new Date().toLocaleDateString('en-US', {
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric'
+    });
+
+    // Notification System
+    const emailInput = document.getElementById('email-input');
+    const notifyBtn = document.getElementById('notify-btn');
+    const customAlert = document.getElementById('custom-alert');
+    const overlay = document.getElementById('overlay');
+    const alertMessage = document.getElementById('alert-message');
+    const alertBtn = document.getElementById('alert-btn');
+    const emailError = document.getElementById('email-error');
+    const successMessage = document.getElementById('success-message');
+
+    // Enhanced email validation with more checks
+    const validateEmail = (email) => {
+      // Basic regex pattern
+      const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      
+      // Check basic pattern
+      if (!re.test(email)) {
+        return { valid: false, message: 'Please enter a valid email address' };
+      }
+      
+      // Check for common fake email patterns
+      const fakePatterns = [
+        { pattern: /^test/i, message: 'Test emails are not accepted' },
+        { pattern: /^example/i, message: 'Example emails are not accepted' },
+        { pattern: /^fake/i, message: 'Fake emails are not accepted' },
+        { pattern: /^temp/i, message: 'Temporary emails are not accepted' },
+        { pattern: /123$/, message: 'Suspicious email pattern detected' },
+        { pattern: /@test\./i, message: 'Test domain emails are not accepted' },
+        { pattern: /@example\./i, message: 'Example domain emails are not accepted' },
+        { pattern: /\.local$/i, message: 'Local domain emails are not accepted' },
+        { pattern: /\.test$/i, message: 'Test domain emails are not accepted' },
+        { pattern: /@mailinator\./i, message: 'Disposable emails are not accepted' },
+        { pattern: /@guerrillamail\./i, message: 'Disposable emails are not accepted' },
+        { pattern: /@temp-mail\./i, message: 'Disposable emails are not accepted' },
+        { pattern: /@yopmail\./i, message: 'Disposable emails are not accepted' }
+      ];
+      
+      // Check for disposable email domains
+      const disposableDomains = [
+        'mailinator.com', 'guerrillamail.com', 'temp-mail.org', 
+        'yopmail.com', 'throwawaymail.com', 'fakeinbox.com'
+      ];
+      
+      const domain = email.split('@')[1];
+      if (disposableDomains.includes(domain.toLowerCase())) {
+        return { valid: false, message: 'Disposable email addresses are not accepted' };
+      }
+      
+      // Check against fake patterns
+      for (const item of fakePatterns) {
+        if (item.pattern.test(email)) {
+          return { valid: false, message: item.message };
+        }
+      }
+      
+      // Additional checks
+      if (email.length > 254) {
+        return { valid: false, message: 'Email address is too long' };
+      }
+      
+      if (email.split('@')[0].length > 64) {
+        return { valid: false, message: 'Email username is too long' };
+      }
+      
+      return { valid: true };
+    };
+
+    // Store emails in localStorage with timestamp
+    const storeEmail = (email) => {
+      let subscribers = JSON.parse(localStorage.getItem('bibleShopSubscribers')) || [];
+      
+      // Check if email already exists
+      const existingSubscriber = subscribers.find(sub => sub.email.toLowerCase() === email.toLowerCase());
+      
+      if (!existingSubscriber) {
+        subscribers.push({
+          email: email,
+          timestamp: new Date().toISOString(),
+          notified: false
+        });
+        localStorage.setItem('bibleShopSubscribers', JSON.stringify(subscribers));
+        return { isNew: true, count: subscribers.length };
+      }
+      
+      return { isNew: false, count: subscribers.length };
+    };
+
+    // Show custom alert
+    const showAlert = (message) => {
+      alertMessage.textContent = message;
+      customAlert.style.display = 'block';
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    };
+
+    // Hide custom alert
+    const hideAlert = () => {
+      customAlert.style.display = 'none';
+      overlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    };
+
+    // Show success message inline
+    const showSuccessMessage = (message) => {
+      successMessage.textContent = message;
+      successMessage.style.display = 'block';
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 5000);
+    };
+
+    // Notification button click handler
+    notifyBtn.addEventListener('click', () => {
+      const email = emailInput.value.trim();
+      emailError.style.display = 'none';
+      
+      if (!email) {
+        emailError.textContent = 'Please enter your email address';
+        emailError.style.display = 'block';
+        emailInput.focus();
+        return;
+      }
+      
+      const validation = validateEmail(email);
+      if (!validation.valid) {
+        emailError.textContent = validation.message;
+        emailError.style.display = 'block';
+        emailInput.focus();
+        return;
+      }
+      
+      // Store the email
+      const subscriptionResult = storeEmail(email);
+      
+      // Show appropriate message
+      if (subscriptionResult.isNew) {
+        showAlert(`Thank you for subscribing, ${email.split('@')[0]}! We'll notify you when our Bible shop launches. You're subscriber #${subscriptionResult.count}!`);
+        showSuccessMessage('Thank you for subscribing! Check your email for confirmation.');
+      } else {
+        showAlert(`Welcome back, ${email.split('@')[0]}! You're already on our notification list (subscriber #${subscriptionResult.count}). We'll email you when we launch.`);
+        showSuccessMessage('You are already subscribed! We appreciate your interest.');
+      }
+      
+      // Clear the input
+      emailInput.value = '';
+    });
+
+    // Alert button click handler
+    alertBtn.addEventListener('click', hideAlert);
+    overlay.addEventListener('click', hideAlert);
+
+    // Allow closing with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && customAlert.style.display === 'block') {
+        hideAlert();
+      }
+    });
+
+    // Validate email on input change
+    emailInput.addEventListener('input', () => {
+      emailError.style.display = 'none';
+    });
+
+    // Form submission handler (prevent default form behavior)
+    document.querySelector('.newsletter').addEventListener('submit', (e) => {
+      e.preventDefault();
+      notifyBtn.click();
+    });
+
+    // Privacy Policy Modal
+    const modal = document.getElementById('privacyModal');
+    const privacyLink = document.getElementById('privacy-link');
+    const closeBtn = document.querySelector('.close');
+    
+    privacyLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.style.display = 'block';
+    });
+    
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

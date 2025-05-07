@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "title": "Prayer Life",
+        "description": "Developing a consistent and powerful prayer life that transforms your relationship with God.",
+        "image": "https:\/\/images.unsplash.com\/photo-1532102235608-dc8f0e4f0a2e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "icon": "fas fa-pray",
+        "content": "<h4>Developing a Powerful Prayer Life<\/h4>\n                <p>Prayer is the lifeline of every believer. In this teaching, we explore how to develop a consistent and effective prayer life that transforms your relationship with God.<\/p>\n                <p>Key points include:<\/p>\n                <ul>\n                    <li>Understanding different types of prayer<\/li>\n                    <li>Creating a prayer routine<\/li>\n                    <li>Overcoming common prayer obstacles<\/li>\n                <\/ul>"
+    },
+    {
+        "id": 2,
+        "title": "Bible Study",
+        "description": "Effective methods for studying God's Word that lead to life transformation.",
+        "image": "https:\/\/images.unsplash.com\/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "icon": "fas fa-bible",
+        "content": "<h4>Effective Bible Study Methods<\/h4>\n                <p>The Bible is God's living Word to us, and studying it should be a dynamic, life-changing experience.<\/p>\n                <p>We'll examine:<\/p>\n                <ul>\n                    <li>The inductive Bible study method<\/li>\n                    <li>Understanding cultural context<\/li>\n                    <li>Applying Scripture to modern life<\/li>\n                <\/ul>"
+    },
+    {
+        "id": 3,
+        "title": "Christian Service",
+        "description": "Discovering and using your spiritual gifts to serve in God's kingdom.",
+        "image": "https:\/\/images.unsplash.com\/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "icon": "fas fa-hands-helping",
+        "content": "<h4>Serving in God's Kingdom<\/h4>\n                <p>Every believer is called to serve in God's kingdom. This teaching explores how to discover your spiritual gifts.<\/p>\n                <p>Topics covered:<\/p>\n                <ul>\n                    <li>Identifying your spiritual gifts<\/li>\n                    <li>Finding your place in the body of Christ<\/li>\n                    <li>Serving with the right motives<\/li>\n                <\/ul>"
+    },
+    {
+        "id": 4,
+        "title": "Family Life",
+        "description": "Building a godly home that reflects Christ's love to the world.",
+        "image": "https:\/\/images.unsplash.com\/photo-1470509037663-253afd7f0f51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "icon": "fas fa-home",
+        "content": "<h4>Building a Godly Family<\/h4>\n                <p>In a world with competing values, building a Christian home is both challenging and essential.<\/p>\n                <p>Key areas:<\/p>\n                <ul>\n                    <li>Biblical roles in the family<\/li>\n                    <li>Raising children in the faith<\/li>\n                    <li>Creating a godly home environment<\/li>\n                <\/ul>"
+    },
+    {
+        "id": 5,
+        "title": "Relationships",
+        "description": "Biblical principles for godly relationships in all areas of life.",
+        "image": "https:\/\/images.unsplash.com\/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "icon": "fas fa-heart",
+        "content": "<h4>Godly Relationships<\/h4>\n                <p>Healthy relationships are foundational to Christian living. This teaching explores biblical principles.<\/p>\n                <p>Topics include:<\/p>\n                <ul>\n                    <li>Biblical friendship<\/li>\n                    <li>Dating and courtship with purity<\/li>\n                    <li>Resolving conflicts biblically<\/li>\n                <\/ul>"
+    },
+    {
+        "id": 6,
+        "title": "Salvation",
+        "description": "Understanding God's gift of salvation and living as a new creation.",
+        "image": "https:\/\/images.unsplash.com\/photo-1506126613408-eca07ce68773?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "icon": "fas fa-cross",
+        "content": "<h4>The Gift of Salvation<\/h4>\n                <p>Salvation is the foundation of the Christian life. This teaching explains what salvation is.<\/p>\n                <p>Key concepts:<\/p>\n                <ul>\n                    <li>Understanding grace<\/li>\n                    <li>The meaning of repentance<\/li>\n                    <li>Living as a new creation<\/li>\n                <\/ul>"
+    },
+    {
+        "id": 7,
+        "title": "Worship",
+        "description": "The heart of true worship and its transformative power in our lives.",
+        "image": "https:\/\/images.unsplash.com\/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "icon": "fas fa-praying-hands",
+        "content": "<h4>The Heart of True Worship<\/h4>\n                <p>Worship is more than music - it's a lifestyle of honoring God in all we do.<\/p>\n                <p>Key aspects:<\/p>\n                <ul>\n                    <li>Understanding worship as a lifestyle<\/li>\n                    <li>The biblical model of worship<\/li>\n                    <li>Overcoming distractions in worship<\/li>\n                <\/ul>"
+    },
+    {
+        "id": 8,
+        "title": "Faith",
+        "description": "Growing in faith that moves mountains and pleases God.",
+        "image": "https:\/\/images.unsplash.com\/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "icon": "fas fa-mountain",
+        "content": "<h4>Growing in Faith<\/h4>\n                <p>Faith is the foundation of our walk with God. This teaching explores how to develop faith.<\/p>\n                <p>Key principles:<\/p>\n                <ul>\n                    <li>Understanding what faith is<\/li>\n                    <li>How faith grows through testing<\/li>\n                    <li>Overcoming doubt and unbelief<\/li>\n                <\/ul>"
+    }
+]

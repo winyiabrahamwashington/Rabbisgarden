@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rabbi's Garden offers expert gardening services to beautify your home and garden.">
+  <title>Rabbi's Garden - Garden Design Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-green: #1e8449;
+      --dark-green: #145a32;
+      --light-green: #58d68d;
+      --gold-accent: #f1c40f;
+      --pure-white: #ffffff;
+      --off-white: #f8f9fa;
+      --dark-bg: #1a1a1a;
+      --text-dark: #333333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.8;
+      background-color: #ffffff;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      color: #7cfc00; /* Changed to lighter lime green */
+    }
+
+    a {
+      text-decoration: none;
+      color: #38d300;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #50ce02;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .btn {
+      background-color: #34c400;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #51d300;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--pure-white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--primary-green);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: var(--gold-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      transition: color 0.3s;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a.active {
+      color: var(--primary-green);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-green);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover:after,
+    .nav-links a.active:after {
+      width: 100%;
+    }
+
+    /* Hamburger menu for mobile */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--primary-green);
+    }
+
+    /* Header Section */
+    header {
+      background-image: url('https://i.pinimg.com/736x/a1/d0/5b/a1d05b15a6b04b6f7d7e791f34f71a45.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      font-size: 4.5em;
+      margin: 0;
+      z-index: 1;
+      color: white !important;
+      text-shadow: 0 0 1px rgba(124, 252, 0, 0.5);
+    }
+
+    header p {
+      font-size: 1.5em;
+      margin: 20px 0;
+      z-index: 1;
+      color: white !important;
+    }
+
+    /* Services Section */
+    #services {
+      padding: 80px 0;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+
+    #services h2 {
+      font-size: 2.8em;
+      margin-bottom: 40px;
+      color: #7cfc00;
+      text-shadow: 0 0 5px rgba(124, 252, 0, 0.3);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .service-item {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      background-color: #f0f0f0;
+    }
+
+    .service-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .service-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .service-item h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #7cfc00;
+    }
+
+    .service-item p {
+      font-size: 1em;
+      color: #666;
+    }
+
+    /* About the Leader Section */
+    #about {
+      padding: 80px 0;
+      background-color: #ffffff;
+    }
+
+    .leader-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .leader-photo {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #34c400;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .leader-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .leader-container .text {
+      max-width: 600px;
+    }
+
+    .leader-container h2 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      color: #7cfc00;
+    }
+
+    .leader-container p {
+      font-size: 1.1em;
+      color: #666;
+    }
+
+    /* Gallery Section */
+    #gallery {
+      padding: 80px 0;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    #gallery h2 {
+      font-size: 2.8em;
+      margin-bottom: 40px;
+      color: #7cfc00;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-thumbnail {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-thumbnail:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background-color: rgba(124, 252, 0, 0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .play-button i {
+      color: white;
+      font-size: 30px;
+      margin-left: 5px;
+    }
+
+    .video-thumbnail:hover .play-button {
+      background-color: rgba(124, 252, 0, 0.9);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* Privacy Policy Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 800px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #333;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--pure-white);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-logo i {
+      margin-right: 10px;
+      color: var(--gold-accent);
+    }
+
+    .footer-about p {
+      margin-bottom: 1rem;
+      color: #aaa;
+    }
+
+    .footer-links h3, .footer-social h3 {
+      color: var(--pure-white);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h3:after, .footer-social h3:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--gold-accent);
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--light-green);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      border-radius: 50%;
+      color: var(--light-green);
+      border: 2px solid var(--light-green);
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--light-green);
+      color: var(--dark-bg);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      header h1 {
+        font-size: 3.5rem;
+      }
+      
+      .leader-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .leader-photo {
+        margin-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--pure-white);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 0;
+        text-align: center;
+        padding: 0.5rem 0;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1.2rem;
+      }
+
+      .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      #services h2, #gallery h2, .leader-container h2 {
+        font-size: 2rem;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-leaf"></i>Rabbi's Garden
+      </a>
+      <div class="hamburger">☰</div>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header id="home">
+    <div class="container">
+      <h1>Rabbi's Garden</h1>
+      <p>In a world that often feels disconnected, Rabbi's Garden offers a beacon of hope and community, rooted in the timeless wisdom of the Bible.</p>
+      <a href="about.html" class="btn">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h2>Mission and Vision</h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <img src="Photos/c9109ce1-01bb-4092-9458-09ae2806376f.jpg" alt="Garden Design">
+          <h3>Mission</h3>
+          <p>The mission is to teach more from a Hebraic understanding of The Scriptures, the language and
+            culture of the Hebrews. Expanding the Kingdom of YHWH here on earth.</p>
+        </div>
+        <div class="service-item">
+          <img src="Photos/IMG-20250320-WA0035.jpg" alt="Landscaping">
+          <h3>Mission</h3>
+          <p>To equip individuals and churches with the resources and training necessary to deepen their understanding and application of the Bible.</p>
+        </div>
+        <div class="service-item">
+          <img src="Photos/IMG-20250320-WA0030.jpg" alt="Maintenance">
+          <h3>Vision</h3>
+          <p>To be a movement for all people to discover and deepen a relationship with Jesus Christ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About the Leader Section -->
+  <section id="about">
+    <div class="container">
+      <div class="leader-container">
+        <img src="Photos/IMG-20250320-WA0030-artguru.jpeg" alt="Leader's Photo" class="leader-photo">
+        <div class="text">
+          <h2>About the Leader</h2>
+          <p>Mike Wuertemburg is the creator and owner of Rabbi's Garden. Also founder and President of
+          Equip Ministries along with his wife Edith Wuertemburg.
+          Being led by The Holy Spirit I envisioned reaching many nations and encouraging people to grow in
+          their relationship with Yeshua (Jesus). Becoming more intimate with Him. To increase their hunger
+          for the Word and to bless others through their insights to The Creator of the universe YHWH.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <div class="container">
+      <h2>Videos</h2>
+      <div class="gallery-grid">
+        <!-- Video 1 -->
+        <div class="video-thumbnail" 
+             style="background-image: url('https://img.youtube.com/vi/_Y_w2Zuzhlk/maxresdefault.jpg');"
+             onclick="loadVideo('_Y_w2Zuzhlk', this)">
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        
+        <!-- Video 2 -->
+        <div class="video-thumbnail" 
+             style="background-image: url('https://img.youtube.com/vi/8ebtvKmUEuI/maxresdefault.jpg');"
+             onclick="loadVideo('8ebtvKmUEuI', this)">
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        
+        <!-- Video 3 -->
+        <div class="video-thumbnail" 
+             style="background-image: url('https://img.youtube.com/vi/upix0_OyAUo/maxresdefault.jpg');"
+             onclick="loadVideo('upix0_OyAUo', this)">
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <i class="fas fa-leaf"></i>Rabbi's Garden
+          </div>
+          <p> A community-based initiative dedicated to sharing the transformative power of the Bible with the world. </p>
+          <p>Join Us in Spreading the Word: Become a Part of Our Bible Community!</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="donations.html">Donations</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+          <p style="margin-top: 1rem; color: #aaa;">Follow our journey and see the impact of your support.</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Rabbi's Garden. All rights reserved. | <a href="#" id="privacy-link" style="color: var(--light-green);">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Privacy Policy</h2>
+      <p><strong>Last Updated: <span id="policy-date"></span></strong></p>
+      
+      <h3>1. Information We Collect</h3>
+      <p>We may collect personal information such as your name, email address, phone number, and payment details when you make a donation, purchase from our shop, or contact us.</p>
+      
+      <h3>2. How We Use Your Information</h3>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Process donations and purchases</li>
+        <li>Respond to your inquiries</li>
+        <li>Send you updates about our ministry (if you opt-in)</li>
+        <li>Improve our services</li>
+      </ul>
+      
+      <h3>3. Information Sharing</h3>
+      <p>We do not sell or share your personal information with third parties except as necessary to process payments or when required by law.</p>
+      
+      <h3>4. Data Security</h3>
+      <p>We implement appropriate security measures to protect your personal information. However, no internet transmission is 100% secure.</p>
+      
+      <h3>5. Your Rights</h3>
+      <p>You may request access to, correction of, or deletion of your personal information by contacting us.</p>
+      
+      <h3>6. Changes to This Policy</h3>
+      <p>We may update this policy periodically. The updated version will be posted on our website with a new "Last Updated" date.</p>
+      
+      <h3>7. Contact Us</h3>
+      <p>If you have questions about this privacy policy, please contact us through our <a href="contacts.html">Contacts page</a>.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Set privacy policy date
+    document.getElementById('policy-date').textContent = new Date().toLocaleDateString('en-US', {
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric'
+    });
+    
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+      } else {
+        nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+      }
+    });
+    
+    // Set active navigation link
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (currentPage === linkPage) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+    
+    // Privacy Policy Modal
+    const modal = document.getElementById('privacyModal');
+    const privacyLink = document.getElementById('privacy-link');
+    const closeBtn = document.querySelector('.close');
+    
+    privacyLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.style.display = 'block';
+    });
+    
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+    
+    // Form submission handling (example for future forms)
+    document.addEventListener('DOMContentLoaded', function() {
+      const forms = document.querySelectorAll('form');
+      
+      forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Here you would typically send the form data to your backend
+          alert('Form submitted! In a real implementation, this would send to your server.');
+        });
+      });
+    });
+
+    // YouTube Video Loader
+    function loadVideo(videoId, element) {
+      // Create the iframe
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      
+      // Replace the thumbnail with the iframe
+      const videoContainer = document.createElement('div');
+      videoContainer.className = 'video-container';
+      videoContainer.appendChild(iframe);
+      
+      // Replace the element
+      element.parentNode.replaceChild(videoContainer, element);
+    }
+
+    // Mobile menu toggle
+    document.querySelector('.hamburger').addEventListener('click', function() {
+      document.getElementById('nav-menu').classList.toggle('show');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('nav-menu').classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>
